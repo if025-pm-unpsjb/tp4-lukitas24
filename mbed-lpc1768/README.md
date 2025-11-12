@@ -1,23 +1,22 @@
-# LPC1768 blink (Mbed2)
+# LPC1768
 
 ## Importar el proyecto en Eclipse
 Una vez clonado localmente, agregar el proyecto en Eclipse:
-* Seleccionar **[File > New > Makefile Project with Existing Code]**. 
+* Seleccionar **[File > Import]** 
 * En la nueva ventana:
+    * Seleccionar **[C/C++] > Makefile Project with Existing Code]** y hacer clic en **[Next]**.
     * En **[Existing Code Location]** indicar el *path* al proyecto (usar el botón **[Browse...]**).
-    * En **[Toolchain for Indexer]** seleccionar la opción *ARM Cross GCC* (¡importante!).
+    * En **[Toolchain for Indexer]** seleccionar la opción *Arm Cross GCC* (¡importante!).
 
 El proyecto debe aparecer ahora en la vista *Project Explorer*: 
 * Hacer clic derecho sobre el mismo, y seleccionar **[Properties]** en el menú contextual.
-* En la nueva ventana, en la sección izquierda, seleccionar **[C/C++ Build > Settings]**. En la sección derecha de la ventana, hacer clic en la pestaña **[Toolchains]**. Verificar que el campo *Name* indique *GNU MCU Eclipse ARM Embedded GCC (arm-none-eabi-gcc)* o bien *GNU Tools for ARM Embedded Processors*.
+* En la nueva ventana, en la sección izquierda, seleccionar **[C/C++ Build > Settings]**. En la sección derecha de la ventana, hacer clic en la pestaña **[Toolchains]**. Verificar que el campo *Name* indique *xPack GNU ARM Embedded GCC (arm-none-eabi-gcc)*.
 * Hacer clic en **[Apply and Close]**.
-
-Verificar que dentro del proyecto exista el directorio `build`. En caso contrario, crearlo haciendo clic derecho sobre el proyecto en la vista *Project Explorer*, y seleccionando **[New > Folder]** en el menú contextual.
 
 ---
 
 ## Compilar
-Finalmente, para compilar el proyecto se puede:
+Para compilar el proyecto hay tres alternativas:
 * Hacer clic derecho sobre el proyecto en la vista *Project Explorer* y seleccionar **[Build]** en el menú contextual.
 * Seleccionar en la barra de menúes de Eclipse **[Project > Build Project]**.
 * Hacer clic en el ícono *Build* (un martillo).
@@ -30,10 +29,8 @@ Si el proyecto compilo correctamente, en la vista **[Console]** debe indicarse q
 Primero, verificar que el `pyocd-gdbserver` este correctamente configurado en Eclipse:
 * Seleccionar **[Windows > Preferences]** en el menú de Eclipse.
 * En la nueva ventana, seleccionar **[MCU > Global pyOCD Path]** en la lista izquierda.
-* En el campo *Executable* debe indicar `pyocd-gdbserver.exe` (sin la extensión en Linux o MacOS), y el campo *Folder* debe contener el *path* al ejecutable, que debe ser la instalación de Python o bien el directorio `pyocd-python` creado con `virtualenv`.
+* En el campo *Executable* debe indicar `pyocd` (con la extensión `.exe` en Windows), y el campo *Folder* debe contener el *path* al ejecutable (`~/setr/tools/pyocd/`).
 * Hacer clic en **[Apply and Close]**.
-
-En caso de usar Linux, verificar que no existan problemas de permisos para acceder a la placa, ejecutando `pyocd-tool list`. Si no se encuentra la placa, seguir las instrucciones [en esta página](https://pypi.org/project/pyOCD/).
 
 A continuación se creará y ejecutará una configuración de *debug*:
 * Seleccionar **[Run > Debug Configurations...]** en el menú de Eclipse.
